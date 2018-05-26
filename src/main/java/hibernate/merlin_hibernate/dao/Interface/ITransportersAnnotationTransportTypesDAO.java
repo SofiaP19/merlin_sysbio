@@ -1,0 +1,25 @@
+package hibernate.merlin_hibernate.dao.Interface;
+
+import java.util.List;
+
+import hibernate.merlin_hibernate.entities.TransportersAnnotationTransportTypes;
+
+
+public interface ITransportersAnnotationTransportTypesDAO {
+
+	public void addTransportersAnnotationTransportTypes(TransportersAnnotationTransportTypes transportersAnnotationTransportType); 
+	
+	public void addTransportersAnnotationTransportTypes(List<TransportersAnnotationTransportTypes> transportersAnnotationTransportTypes);
+	
+	public List<TransportersAnnotationTransportTypes> getAllTransportersAnnotationTransportTypes(); 
+	
+	public TransportersAnnotationTransportTypes getTransportersAnnotationTransportTypes(Integer id); 
+	
+	public void removeTransportersAnnotationTransportTypes(TransportersAnnotationTransportTypes transportersAnnotationTransportType); 
+	
+	public void removeTransportersAnnotationTransportTypes(List<TransportersAnnotationTransportTypes> transportersAnnotationTransportType); 
+	
+	public void updateTransportersAnnotationTransportTypes(List<TransportersAnnotationTransportTypes> transportersAnnotationTransportTypes); 
+	
+	public void updateTransportersAnnotationTransportTypes(TransportersAnnotationTransportTypes transportersAnnotationTransportType);
+}

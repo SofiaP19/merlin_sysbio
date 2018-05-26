@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.TransportersAnnotationTcNumbers" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="transporters_annotation_tc_numbers">
+        <composite-id class="hibernate.merlin_hibernate.entities.TransportersAnnotationTcNumbersId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="tcNumber" type="string">
+                <column length="45" name="tc_number"/>
+            </key-property>
+            <key-property name="tcVersion" type="int">
+                <column name="tc_version"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="hibernate.merlin_hibernate.entities.TransportersAnnotationGeneralEquation" embed-xml="true" fetch="select" insert="true" name="transportersAnnotationGeneralEquation" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="general_equation_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="hibernate.merlin_hibernate.entities.TransportersAnnotationTaxonomyData" embed-xml="true" fetch="select" insert="true" name="transportersAnnotationTaxonomyData" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="taxonomy_data_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="tcFamily" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="tc_family" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="tcLocation" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="tc_location"/>
+        </property>
+        <property generated="never" lazy="false" name="affinity" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="affinity"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="transportersAnnotationTransportSystemses" optimistic-lock="true" sort="unsorted" table="transporters_annotation_tc_numbers_has_transport_systems">
+            <key on-delete="noaction">
+                <column length="45" name="tc_number" not-null="true"/>
+                <column name="tc_version" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.TransportersAnnotationTransportSystems" not-found="exception" unique="false">
+                <column name="transport_system_id" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="transportersAnnotationTcdbRegistrieses" optimistic-lock="true" sort="unsorted" table="transporters_annotation_tcdb_registries">
+            <key on-delete="noaction">
+                <column length="45" name="tc_number" not-null="true"/>
+                <column name="tc_version" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.TransportersAnnotationTcdbRegistries" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+package hibernate.merlin_hibernate.dao.Interface;
+
+import java.util.List;
+
+import hibernate.merlin_hibernate.entities.EnzymesAnnotationHomologuesHasEcnumber;
+
+
+
+public interface IEnzymesAnnotationHomologuesHasEcnumberDAO {
+
+	public void addEnzymesAnnotationHomologuesHasEcnumber(EnzymesAnnotationHomologuesHasEcnumber enzymesAnnotationHomologuesHasEcnumber); 
+	
+	public void addEnzymesAnnotationHomologuesHasEcnumber(List<EnzymesAnnotationHomologuesHasEcnumber> enzymesAnnotationHomologuesHasEcnumberList); 
+	
+	public List<EnzymesAnnotationHomologuesHasEcnumber> getAllEnzymesAnnotationHomologuesHasEcnumber(); 
+	
+	public EnzymesAnnotationHomologuesHasEcnumber getEnzymesAnnotationHomologuesHasEcnumber(Integer id); 
+	
+	public void removeEnzymesAnnotationHomologuesHasEcnumber(EnzymesAnnotationHomologuesHasEcnumber enzymesAnnotationHomologuesHasEcnumber); 
+	
+	public void removeEnzymesAnnotationHomologuesHasEcnumberList(List<EnzymesAnnotationHomologuesHasEcnumber> enzymesAnnotationHomologuesHasEcnumberList); 
+	
+	public void updateEnzymesAnnotationHomologuesHasEcnumberList(List<EnzymesAnnotationHomologuesHasEcnumber> enzymesAnnotationHomologuesHasEcnumberList); 
+	
+	public void updateEnzymesAnnotationHomologuesHasEcnumber(EnzymesAnnotationHomologuesHasEcnumber enzymesAnnotationHomologuesHasEcnumber);
+}
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.ModelEntityisfrom" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="model_entityisfrom">
+        <composite-id class="hibernate.merlin_hibernate.entities.ModelEntityisfromId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="strainIdstrain" type="int">
+                <column name="strain_idstrain"/>
+            </key-property>
+            <key-property name="wid" type="java.lang.Integer">
+                <column name="wid"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="hibernate.merlin_hibernate.entities.ModelStrain" embed-xml="true" fetch="select" insert="false" name="modelStrain" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="strain_idstrain" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

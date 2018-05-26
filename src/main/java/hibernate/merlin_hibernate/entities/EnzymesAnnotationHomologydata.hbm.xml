@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.EnzymesAnnotationHomologydata" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="enzymes_annotation_homologydata">
+        <id name="SKey" type="java.lang.Integer">
+            <column name="s_key"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="geneHomologySKey" optimistic-lock="true" type="int" unique="false">
+            <column name="geneHomology_s_key" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="locusTag" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="locusTag" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="geneName" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="geneName"/>
+        </property>
+        <property generated="never" lazy="false" name="product" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="product" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="ecNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="16777215" name="ecNumber"/>
+        </property>
+        <property generated="never" lazy="false" name="selected" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="selected"/>
+        </property>
+        <property generated="never" lazy="false" name="chromosome" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="chromosome"/>
+        </property>
+        <property generated="never" lazy="false" name="notes" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="notes"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="enzymesAnnotationProductlists" optimistic-lock="true" sort="unsorted" table="enzymes_annotation_productlist">
+            <key on-delete="noaction">
+                <column name="homologyData_s_key" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.EnzymesAnnotationProductlist" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="enzymesAnnotationEcnumberlists" optimistic-lock="true" sort="unsorted" table="enzymes_annotation_ecnumberlist">
+            <key on-delete="noaction">
+                <column name="homologyData_s_key" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.EnzymesAnnotationEcnumberlist" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

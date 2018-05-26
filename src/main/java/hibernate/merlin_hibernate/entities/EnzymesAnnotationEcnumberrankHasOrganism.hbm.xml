@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.EnzymesAnnotationEcnumberrankHasOrganism" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="enzymes_annotation_ecnumberrank_has_organism">
+        <composite-id class="hibernate.merlin_hibernate.entities.EnzymesAnnotationEcnumberrankHasOrganismId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="ecNumberRankSKey" type="int">
+                <column name="ecNumberRank_s_key"/>
+            </key-property>
+            <key-property name="organismSKey" type="int">
+                <column name="organism_s_key"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="hibernate.merlin_hibernate.entities.EnzymesAnnotationEcnumberrank" embed-xml="true" fetch="select" insert="false" name="enzymesAnnotationEcnumberrank" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="ecNumberRank_s_key" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="hibernate.merlin_hibernate.entities.EnzymesAnnotationOrganism" embed-xml="true" fetch="select" insert="false" name="enzymesAnnotationOrganism" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="organism_s_key" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

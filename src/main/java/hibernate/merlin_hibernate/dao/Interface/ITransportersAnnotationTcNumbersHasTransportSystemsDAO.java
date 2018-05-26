@@ -1,0 +1,27 @@
+package hibernate.merlin_hibernate.dao.Interface;
+
+import java.util.List;
+
+import hibernate.merlin_hibernate.entities.TransportersAnnotationTcNumbersHasTransportSystems;
+
+
+
+public interface ITransportersAnnotationTcNumbersHasTransportSystemsDAO {
+
+	public void addTransportersAnnotationTcNumbersHasTransportSystem(TransportersAnnotationTcNumbersHasTransportSystems transportersAnnotationTcNumbersHasTransportSystem); 
+	
+	public void addTransportersAnnotationTcNumbersHasTransportSystems(List<TransportersAnnotationTcNumbersHasTransportSystems> transportersAnnotationTcNumbersHasTransportSystems); 
+	
+	public List<TransportersAnnotationTcNumbersHasTransportSystems> getAllTransportersAnnotationTcNumbersHasTransportSystems(); 
+	
+	public TransportersAnnotationTcNumbersHasTransportSystems getTransportersAnnotationTcNumbersHasTransportSystems(Integer id); 
+	
+	public void removeTransportersAnnotationTcNumbersHasTransportSystem(TransportersAnnotationTcNumbersHasTransportSystems transportersAnnotationTcNumbersHasTransportSystem); 
+	
+	public void removeTransportersAnnotationTcNumbersHasTransportSystems(List<TransportersAnnotationTcNumbersHasTransportSystems> transportersAnnotationTcNumbersHasTransportSystem); 
+	
+	public void updateTransportersAnnotationTcNumbersHasTransportSystems(List<TransportersAnnotationTcNumbersHasTransportSystems> transportersAnnotationTcNumbersHasTransportSystem); 
+	
+	public void updateTransportersAnnotationTcNumbersHasTransportSystem(TransportersAnnotationTcNumbersHasTransportSystems transportersAnnotationTcNumbersHasTransportSystem);
+
+}

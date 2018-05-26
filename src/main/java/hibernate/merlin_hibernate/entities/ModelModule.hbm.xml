@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.ModelModule" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="model_module">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="reaction" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="reaction" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="entryId" optimistic-lock="true" type="string" unique="false">
+            <column length="6" name="entry_id" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="stoichiometry" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="stoichiometry"/>
+        </property>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="name"/>
+        </property>
+        <property generated="never" lazy="false" name="definition" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="definition" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="hieralchicalClass" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="hieralchical_class"/>
+        </property>
+        <property generated="never" lazy="false" name="type" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="type" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelOrthologies" optimistic-lock="true" sort="unsorted" table="model_module_has_orthology">
+            <key on-delete="noaction">
+                <column name="module_id" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelOrthology" not-found="exception" unique="false">
+                <column name="orthology_id" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelEnzymeHasModules" optimistic-lock="true" sort="unsorted" table="model_enzyme_has_module">
+            <key on-delete="noaction">
+                <column name="module_id" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelEnzymeHasModule" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelPathways" optimistic-lock="true" sort="unsorted" table="model_pathway_has_module">
+            <key on-delete="noaction">
+                <column name="module_id" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelPathway" not-found="exception" unique="false">
+                <column name="pathway_idpathway" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelCompounds" optimistic-lock="true" sort="unsorted" table="model_modules_has_compound">
+            <key on-delete="noaction">
+                <column name="modules_id" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelCompound" not-found="exception" unique="false">
+                <column name="compound_idcompound" not-null="true"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.TransportersAnnotationTcdbRegistries" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="transporters_annotation_tcdb_registries">
+        <composite-id class="hibernate.merlin_hibernate.entities.TransportersAnnotationTcdbRegistriesId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="uniprotId" type="string">
+                <column length="45" name="uniprot_id"/>
+            </key-property>
+            <key-property name="version" type="int">
+                <column name="version"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="hibernate.merlin_hibernate.entities.TransportersAnnotationTcNumbers" embed-xml="true" fetch="select" insert="true" name="transportersAnnotationTcNumbers" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="45" name="tc_number" not-null="true"/>
+            <column name="tc_version" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="loadedAt" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="loaded_at" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="latestVersion" optimistic-lock="true" type="boolean" unique="false">
+            <column name="latest_version" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="status" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="transportersAnnotationGenesHasTcdbRegistrieses" optimistic-lock="true" sort="unsorted" table="transporters_annotation_genes_has_tcdb_registries">
+            <key on-delete="noaction">
+                <column length="45" name="uniprot_id" not-null="true"/>
+                <column name="version" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.TransportersAnnotationGenesHasTcdbRegistries" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

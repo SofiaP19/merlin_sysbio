@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.ModelGene" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="model_gene">
+        <id name="idgene" type="java.lang.Integer">
+            <column name="idgene"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="hibernate.merlin_hibernate.entities.ModelChromosome" embed-xml="true" fetch="select" insert="true" name="modelChromosome" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="chromosome_idchromosome"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="120" name="name"/>
+        </property>
+        <property generated="never" lazy="false" name="locusTag" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="locusTag"/>
+        </property>
+        <property generated="never" lazy="false" name="transcriptionDirection" optimistic-lock="true" type="string" unique="false">
+            <column length="3" name="transcription_direction"/>
+        </property>
+        <property generated="never" lazy="false" name="leftEndPosition" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="left_end_position"/>
+        </property>
+        <property generated="never" lazy="false" name="rightEndPosition" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="right_end_position"/>
+        </property>
+        <property generated="never" lazy="false" name="booleanRule" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="boolean_rule"/>
+        </property>
+        <property generated="never" lazy="false" name="origin" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="origin" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="sequenceId" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="sequence_id" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelSubunits" optimistic-lock="true" sort="unsorted" table="model_subunit">
+            <key on-delete="noaction">
+                <column name="gene_idgene" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelSubunit" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelGeneHasCompartments" optimistic-lock="true" sort="unsorted" table="model_gene_has_compartment">
+            <key on-delete="noaction">
+                <column name="gene_idgene" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelGeneHasCompartment" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelGeneHasOrthologies" optimistic-lock="true" sort="unsorted" table="model_gene_has_orthology">
+            <key on-delete="noaction">
+                <column name="gene_idgene" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelGeneHasOrthology" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelSequences" optimistic-lock="true" sort="unsorted" table="model_sequence">
+            <key on-delete="noaction">
+                <column name="gene_idgene" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelSequence" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelTranscriptionUnits" optimistic-lock="true" sort="unsorted" table="model_transcription_unit_gene">
+            <key on-delete="noaction">
+                <column name="gene_idgene" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelTranscriptionUnit" not-found="exception" unique="false">
+                <column name="transcription_unit_idtranscription_unit" not-null="true"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

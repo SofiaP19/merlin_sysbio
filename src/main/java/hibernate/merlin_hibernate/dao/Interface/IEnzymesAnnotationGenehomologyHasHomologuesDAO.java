@@ -1,0 +1,27 @@
+package hibernate.merlin_hibernate.dao.Interface;
+
+import java.util.List;
+
+import hibernate.merlin_hibernate.entities.EnzymesAnnotationGenehomologyHasHomologues;
+
+
+
+public interface IEnzymesAnnotationGenehomologyHasHomologuesDAO {
+
+	public void addEnzymesAnnotationGenehomologyHasHomologues(EnzymesAnnotationGenehomologyHasHomologues enzymesAnnotationGenehomologyHasHomologues); 
+	
+	public void addEnzymesAnnotationGenehomologyHasHomologuesList(List<EnzymesAnnotationGenehomologyHasHomologues> enzymesAnnotationGenehomologyHasHomologuesList); 
+	
+	public List<EnzymesAnnotationGenehomologyHasHomologues> getAllEnzymesAnnotationGenehomologyHasHomologues(); 
+	
+	public EnzymesAnnotationGenehomologyHasHomologues getEnzymesAnnotationGenehomologyHasHomologues(Integer id); 
+	
+	public void removeEnzymesAnnotationGenehomologyHasHomologues(EnzymesAnnotationGenehomologyHasHomologues enzymesAnnotationGenehomologyHasHomologues); 
+	
+	public void removeEnzymesAnnotationGenehomologyHasHomologuesList(List<EnzymesAnnotationGenehomologyHasHomologues> enzymesAnnotationGenehomologyHasHomologuesList); 
+	
+	public void updateEnzymesAnnotationGenehomologyHasHomologuesList(List<EnzymesAnnotationGenehomologyHasHomologues> enzymesAnnotationGenehomologyHasHomologuesList); 
+	
+	public void updateEnzymesAnnotationGenehomologyHasHomologues(EnzymesAnnotationGenehomologyHasHomologues enzymesAnnotationGenehomologyHasHomologues);
+}
+

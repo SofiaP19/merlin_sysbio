@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.ModelCompound" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="model_compound">
+        <id name="idcompound" type="java.lang.Integer">
+            <column name="idcompound"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="400" name="name"/>
+        </property>
+        <property generated="never" lazy="false" name="inchi" optimistic-lock="true" type="string" unique="false">
+            <column length="1500" name="inchi"/>
+        </property>
+        <property generated="never" lazy="false" name="keggId" optimistic-lock="true" type="string" unique="false">
+            <column length="15" name="kegg_id"/>
+        </property>
+        <property generated="never" lazy="false" name="entryType" optimistic-lock="true" type="string" unique="false">
+            <column length="9" name="entry_type"/>
+        </property>
+        <property generated="never" lazy="false" name="formula" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="formula"/>
+        </property>
+        <property generated="never" lazy="false" name="molecularWeight" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="molecular_weight"/>
+        </property>
+        <property generated="never" lazy="false" name="neutralFormula" optimistic-lock="true" type="string" unique="false">
+            <column length="120" name="neutral_formula"/>
+        </property>
+        <property generated="never" lazy="false" name="charge" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="charge"/>
+        </property>
+        <property generated="never" lazy="false" name="smiles" optimistic-lock="true" type="string" unique="false">
+            <column length="1200" name="smiles"/>
+        </property>
+        <property generated="never" lazy="false" name="hasBiologicalRoles" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="hasBiologicalRoles"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelExperimentSubstrateAffinities" optimistic-lock="true" sort="unsorted" table="model_experiment_substrate_affinity">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelExperimentSubstrateAffinity" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelProteins" optimistic-lock="true" sort="unsorted" table="model_effector">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelProtein" not-found="exception" unique="false">
+                <column name="protein_idprotein" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelModules" optimistic-lock="true" sort="unsorted" table="model_modules_has_compound">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelModule" not-found="exception" unique="false">
+                <column name="modules_id" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelCompoundsForMetaboliteId" optimistic-lock="true" sort="unsorted" table="model_same_as">
+            <key on-delete="noaction">
+                <column name="similar_metabolite_id" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelCompound" not-found="exception" unique="false">
+                <column name="metabolite_id" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelExperimentTurnoverNumbers" optimistic-lock="true" sort="unsorted" table="model_experiment_turnover_number">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelExperimentTurnoverNumber" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelEnzymaticCofactors" optimistic-lock="true" sort="unsorted" table="model_enzymatic_cofactor">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelEnzymaticCofactor" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelMetabolicRegulations" optimistic-lock="true" sort="unsorted" table="model_metabolic_regulation">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelMetabolicRegulation" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelFunctionalParameters" optimistic-lock="true" sort="unsorted" table="model_functional_parameter">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelFunctionalParameter" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelEnzymaticAlternativeCofactors" optimistic-lock="true" sort="unsorted" table="model_enzymatic_alternative_cofactor">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelEnzymaticAlternativeCofactor" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelStoichiometries" optimistic-lock="true" sort="unsorted" table="model_stoichiometry">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelStoichiometry" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelSubstrateAffinities" optimistic-lock="true" sort="unsorted" table="model_substrate_affinity">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelSubstrateAffinity" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelExperimentInhibitors" optimistic-lock="true" sort="unsorted" table="model_experiment_inhibitor">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelExperimentInhibitor" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelPathways" optimistic-lock="true" sort="unsorted" table="model_pathway_has_compound">
+            <key on-delete="noaction">
+                <column name="compound_idcompound" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelPathway" not-found="exception" unique="false">
+                <column name="pathway_idpathway" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelCompoundsForSimilarMetaboliteId" optimistic-lock="true" sort="unsorted" table="model_same_as">
+            <key on-delete="noaction">
+                <column name="metabolite_id" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelCompound" not-found="exception" unique="false">
+                <column name="similar_metabolite_id" not-null="true"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

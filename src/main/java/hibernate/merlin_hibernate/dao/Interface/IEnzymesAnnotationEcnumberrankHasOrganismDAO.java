@@ -1,0 +1,25 @@
+package hibernate.merlin_hibernate.dao.Interface;
+
+import java.util.List;
+
+import hibernate.merlin_hibernate.entities.EnzymesAnnotationEcnumberrankHasOrganism;
+
+
+public interface IEnzymesAnnotationEcnumberrankHasOrganismDAO {
+
+	public void addEnzymesAnnotationEcnumberrankHasOrganism(EnzymesAnnotationEcnumberrankHasOrganism enzymesAnnotationEcnumberrankHasOrganism); 
+	
+	public void addEnzymesAnnotationEcnumberrankList(List<EnzymesAnnotationEcnumberrankHasOrganism> enzymesAnnotationEcnumberrankHasOrganismList); 
+	
+	public List<EnzymesAnnotationEcnumberrankHasOrganism> getAllEnzymesAnnotationEcnumberrankHasOrganism(); 
+	
+	public EnzymesAnnotationEcnumberrankHasOrganism getEnzymesAnnotationEcnumberrankHasOrganism(Integer id); 
+	
+	public void removeEnzymesAnnotationEcnumberrankHasOrganism(EnzymesAnnotationEcnumberrankHasOrganism enzymesAnnotationEcnumberrankHasOrganism); 
+	
+	public void removeEnzymesAnnotationEcnumberrankHasOrganismList(List<EnzymesAnnotationEcnumberrankHasOrganism> enzymesAnnotationEcnumberrankHasOrganismList); 
+	
+	public void updateEnzymesAnnotationEcnumberrankHasOrganismList(List<EnzymesAnnotationEcnumberrankHasOrganism> enzymesAnnotationEcnumberrankHasOrganismList); 
+	
+	public void updateEnzymesAnnotationEcnumberrankHasOrganism(EnzymesAnnotationEcnumberrankHasOrganism enzymesAnnotationEcnumberrankHasOrganism);
+}

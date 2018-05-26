@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.ModelEnzymeHasModule" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="model_enzyme_has_module">
+        <composite-id class="hibernate.merlin_hibernate.entities.ModelEnzymeHasModuleId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="enzymeEcnumber" type="string">
+                <column length="15" name="enzyme_ecnumber"/>
+            </key-property>
+            <key-property name="enzymeProteinIdprotein" type="int">
+                <column name="enzyme_protein_idprotein"/>
+            </key-property>
+            <key-property name="moduleId" type="int">
+                <column name="module_id"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="hibernate.merlin_hibernate.entities.ModelEnzyme" embed-xml="true" fetch="select" insert="false" name="modelEnzyme" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column length="15" name="enzyme_ecnumber" not-null="true"/>
+            <column name="enzyme_protein_idprotein" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="hibernate.merlin_hibernate.entities.ModelModule" embed-xml="true" fetch="select" insert="false" name="modelModule" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="module_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="name"/>
+        </property>
+        <property generated="never" lazy="false" name="note" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="note"/>
+        </property>
+    </class>
+</hibernate-mapping>

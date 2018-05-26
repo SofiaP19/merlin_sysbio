@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.TransportersAnnotationMetabolitesOntology" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="transporters_annotation_metabolites_ontology">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="metaboliteId" optimistic-lock="true" type="int" unique="false">
+            <column name="metabolite_id" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="childId" optimistic-lock="true" type="int" unique="false">
+            <column name="child_id" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

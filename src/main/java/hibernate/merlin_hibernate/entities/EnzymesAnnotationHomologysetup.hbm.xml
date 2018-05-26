@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.EnzymesAnnotationHomologysetup" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="enzymes_annotation_homologysetup">
+        <id name="SKey" type="java.lang.Integer">
+            <column name="s_key"/>
+            <generator class="identity"/>
+        </id>
+        <version generated="never" name="version" type="string" unsaved-value="undefined">
+            <column name="version"/>
+        </version>
+        <property generated="never" lazy="false" name="program" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="program"/>
+        </property>
+        <property generated="never" lazy="false" name="databaseId" optimistic-lock="true" type="string" unique="false">
+            <column name="databaseID"/>
+        </property>
+        <property generated="never" lazy="false" name="evalue" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="eValue"/>
+        </property>
+        <property generated="never" lazy="false" name="matrix" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="matrix"/>
+        </property>
+        <property generated="never" lazy="false" name="wordSize" optimistic-lock="true" type="string" unique="false">
+            <column length="5" name="wordSize"/>
+        </property>
+        <property generated="never" lazy="false" name="gapCosts" optimistic-lock="true" type="string" unique="false">
+            <column length="15" name="gapCosts"/>
+        </property>
+        <property generated="never" lazy="false" name="maxNumberOfAlignments" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="maxNumberOfAlignments"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="enzymesAnnotationGenehomologies" optimistic-lock="true" sort="unsorted" table="enzymes_annotation_genehomology">
+            <key on-delete="noaction">
+                <column name="homologySetup_s_key" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.EnzymesAnnotationGenehomology" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

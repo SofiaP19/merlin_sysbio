@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.ModelAliases" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="model_aliases">
+        <composite-id class="hibernate.merlin_hibernate.entities.ModelAliasesId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="idalias" type="int">
+                <column name="idalias"/>
+            </key-property>
+            <key-property name="class_" type="string">
+                <column length="2" name="class"/>
+            </key-property>
+            <key-property name="entity" type="int">
+                <column name="entity"/>
+            </key-property>
+        </composite-id>
+        <property generated="never" lazy="false" name="alias" optimistic-lock="true" type="string" unique="false">
+            <column length="1200" name="alias" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

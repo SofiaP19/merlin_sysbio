@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.ModelReaction" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="model_reaction">
+        <id name="idreaction" type="java.lang.Integer">
+            <column name="idreaction"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="hibernate.merlin_hibernate.entities.ModelCompartment" embed-xml="true" fetch="select" insert="true" name="modelCompartment" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="compartment_idcompartment"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="400" name="name"/>
+        </property>
+        <property generated="never" lazy="false" name="equation" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="equation"/>
+        </property>
+        <property generated="never" lazy="false" name="reversible" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="reversible"/>
+        </property>
+        <property generated="never" lazy="false" name="booleanRule" optimistic-lock="true" type="string" unique="false">
+            <column length="400" name="boolean_rule"/>
+        </property>
+        <property generated="never" lazy="false" name="inModel" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="inModel"/>
+        </property>
+        <property generated="never" lazy="false" name="isGeneric" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="isGeneric"/>
+        </property>
+        <property generated="never" lazy="false" name="isSpontaneous" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="isSpontaneous"/>
+        </property>
+        <property generated="never" lazy="false" name="isNonEnzymatic" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="isNonEnzymatic"/>
+        </property>
+        <property generated="never" lazy="false" name="source" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="source" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="originalReaction" optimistic-lock="true" type="boolean" unique="false">
+            <column name="originalReaction" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="notes" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="notes"/>
+        </property>
+        <property generated="never" lazy="false" name="lowerBound" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="lowerBound"/>
+        </property>
+        <property generated="never" lazy="false" name="upperBound" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="upperBound"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelEnzymes" optimistic-lock="true" sort="unsorted" table="model_activating_reaction">
+            <key on-delete="noaction">
+                <column name="reaction_idreaction" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelEnzyme" not-found="exception" unique="false">
+                <column length="15" name="enzyme_ecnumber" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelPathways" optimistic-lock="true" sort="unsorted" table="model_pathway_has_reaction">
+            <key on-delete="noaction">
+                <column name="reaction_idreaction" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelPathway" not-found="exception" unique="false">
+                <column name="pathway_idpathway" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelEnzymes_1" optimistic-lock="true" sort="unsorted" table="model_reaction_has_enzyme">
+            <key on-delete="noaction">
+                <column name="reaction_idreaction" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelEnzyme" not-found="exception" unique="false">
+                <column length="15" name="enzyme_ecnumber" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelReactionsForSubReactionId" optimistic-lock="true" sort="unsorted" table="model_is_super_reaction">
+            <key on-delete="noaction">
+                <column name="super_reaction_id" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelReaction" not-found="exception" unique="false">
+                <column name="sub_reaction_id" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelStoichiometries" optimistic-lock="true" sort="unsorted" table="model_stoichiometry">
+            <key on-delete="noaction">
+                <column name="reaction_idreaction" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.ModelStoichiometry" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelReactionsForSuperReactionId" optimistic-lock="true" sort="unsorted" table="model_is_super_reaction">
+            <key on-delete="noaction">
+                <column name="sub_reaction_id" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelReaction" not-found="exception" unique="false">
+                <column name="super_reaction_id" not-null="true"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

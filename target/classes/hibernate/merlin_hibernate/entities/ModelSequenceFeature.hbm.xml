@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.ModelSequenceFeature" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="model_sequence_feature">
+        <id name="featureIdfeature" type="int">
+            <column name="feature_idfeature"/>
+            <generator class="foreign">
+                <param name="property">modelFeature</param>
+            </generator>
+        </id>
+        <one-to-one class="hibernate.merlin_hibernate.entities.ModelFeature" constrained="true" embed-xml="true" name="modelFeature"/>
+        <many-to-one class="hibernate.merlin_hibernate.entities.ModelSequence" embed-xml="true" fetch="select" insert="true" name="modelSequence" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="sequence_idsequence" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="startPositionApproximate" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="start_position_approximate"/>
+        </property>
+        <property generated="never" lazy="false" name="endPositionApproximate" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="end_position_approximate"/>
+        </property>
+    </class>
+</hibernate-mapping>

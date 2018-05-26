@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.InterproInterproXref" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="interpro_interpro_xref">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="hibernate.merlin_hibernate.entities.InterproInterproEntry" embed-xml="true" fetch="select" insert="true" name="interproInterproEntry" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="entry_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="category" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="category"/>
+        </property>
+        <property generated="never" lazy="false" name="database" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="database" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="250" name="name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="externalId" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="external_id"/>
+        </property>
+    </class>
+</hibernate-mapping>

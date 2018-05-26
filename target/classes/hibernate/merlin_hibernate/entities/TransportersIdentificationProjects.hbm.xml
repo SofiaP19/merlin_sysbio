@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.TransportersIdentificationProjects" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="transporters_identification_projects">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <version generated="never" name="version" type="int" unsaved-value="undefined">
+            <column name="version" not-null="true"/>
+        </version>
+        <property generated="never" lazy="false" name="organismId" optimistic-lock="true" type="int" unique="false">
+            <column name="organism_id" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="latestVersion" optimistic-lock="true" type="boolean" unique="false">
+            <column name="latest_version" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="date" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="19" name="date" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="transportersIdentificationSwReportses" optimistic-lock="true" sort="unsorted" table="transporters_identification_sw_reports">
+            <key on-delete="noaction">
+                <column name="project_id" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.TransportersIdentificationSwReports" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="compartmentsAnnotationPsortReportses" optimistic-lock="true" sort="unsorted" table="compartments_annotation_psort_reports">
+            <key on-delete="noaction">
+                <column name="project_id" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.CompartmentsAnnotationPsortReports" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

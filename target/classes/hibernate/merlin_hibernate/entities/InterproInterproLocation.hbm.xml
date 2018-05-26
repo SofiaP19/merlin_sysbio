@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.InterproInterproLocation" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="interpro_interpro_location">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="hibernate.merlin_hibernate.entities.InterproInterproResult" embed-xml="true" fetch="select" insert="true" name="interproInterproResult" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="result_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="start" optimistic-lock="true" type="int" unique="false">
+            <column name="start" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="end" optimistic-lock="true" type="int" unique="false">
+            <column name="end" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="score" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="score" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="hmmStart" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="hmmStart"/>
+        </property>
+        <property generated="never" lazy="false" name="hmmEnd" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="hmmEnd"/>
+        </property>
+        <property generated="never" lazy="false" name="evalue" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="eValue" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="envStart" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="envStart"/>
+        </property>
+        <property generated="never" lazy="false" name="envEnd" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="envEnd"/>
+        </property>
+        <property generated="never" lazy="false" name="hmmLength" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="hmmLength"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.TransportersIdentificationSwHits" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="transporters_identification_sw_hits">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="acc" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="acc" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="tcdbId" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="tcdb_id" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="transportersIdentificationSwSimilaritieses" optimistic-lock="true" sort="unsorted" table="transporters_identification_sw_similarities">
+            <key on-delete="noaction">
+                <column name="sw_hit_id" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.TransportersIdentificationSwSimilarities" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

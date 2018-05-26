@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.InterproInterproResult" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="interpro_interpro_result">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="hibernate.merlin_hibernate.entities.InterproInterproResults" embed-xml="true" fetch="select" insert="true" name="interproInterproResults" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="results_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="tool" optimistic-lock="true" type="string" unique="false">
+            <column length="250" name="tool" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="evalue" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="eValue" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="score" optimistic-lock="true" type="java.lang.Float" unique="false">
+            <column name="score" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="familyName" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="familyName"/>
+        </property>
+        <property generated="never" lazy="false" name="accession" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="accession"/>
+        </property>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="250" name="name"/>
+        </property>
+        <property generated="never" lazy="false" name="ec" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="ec"/>
+        </property>
+        <property generated="never" lazy="false" name="goName" optimistic-lock="true" type="string" unique="false">
+            <column length="250" name="goName"/>
+        </property>
+        <property generated="never" lazy="false" name="localization" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="localization"/>
+        </property>
+        <property generated="never" lazy="false" name="database" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="database"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="interproInterproEntries" optimistic-lock="true" sort="unsorted" table="interpro_interpro_result_has_entry">
+            <key on-delete="noaction">
+                <column name="result_id" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.InterproInterproEntry" not-found="exception" unique="false">
+                <column name="entry_id" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="interproInterproLocations" optimistic-lock="true" sort="unsorted" table="interpro_interpro_location">
+            <key on-delete="noaction">
+                <column name="result_id" not-null="true"/>
+            </key>
+            <one-to-many class="hibernate.merlin_hibernate.entities.InterproInterproLocation" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="interproInterproModels" optimistic-lock="true" sort="unsorted" table="interpro_interpro_result_has_model">
+            <key on-delete="noaction">
+                <column name="result_id" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.InterproInterproModel" not-found="exception" unique="false">
+                <column length="45" name="model_accession" not-null="true"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
