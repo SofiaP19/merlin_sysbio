@@ -41,17 +41,7 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
-    {
-    	System.out.println("testing");
-    	try {
-			this.setUp();
-			this.modelGene();
-		} catch (Exception e) {
-			
-		}
-        
-    }
+
     SessionFactory sessionFactory;
     
     protected void setUp() throws Exception {
@@ -70,6 +60,28 @@ public class AppTest
     	}
     }
     
+    public void modelGene() {
+    	
+
+    	ModelGeneDAOImpl dao = new ModelGeneDAOImpl(this.sessionFactory);
+    	
+    	System.out.println(dao.getAllDatabaseGenes());
+    	
+    	
+    }
+    
+    public void testApp()
+    {
+    	System.out.println("testing");
+    	try {
+			this.setUp();
+			this.modelGene();
+		} catch (Exception e) {
+			
+		}
+        
+    }
+    
     public void getQueries() {
     	
 
@@ -79,13 +91,6 @@ public class AppTest
     	
     }
     
-    public void modelGene() {
-    	
 
-    	ModelGeneDAOImpl dao = new ModelGeneDAOImpl(this.sessionFactory);
-    	
-    	System.out.println(dao.getAllDatabaseGenes());
-    	
-    }
 }
 
