@@ -62,7 +62,9 @@ public class GenericDaoImpl<T> implements IGenericDao<T> {
 			
 			Predicate p = cb.and(filters.toArray(new Predicate[] {}));  // junta todos os predicados com and
 			c.where(p);
+			
 			Query<T> q = sessionFactory.getCurrentSession().createQuery(c);
+			
 			return q.getResultList();
 		}
 

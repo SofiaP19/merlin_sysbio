@@ -10,18 +10,13 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Property;
 import org.hibernate.query.Query;
 
+import hibernate.merlin_hibernate.dao.Interface.IModelEnzymeDAO;
 import hibernate.merlin_hibernate.entities.ModelEnzyme;
 import hibernate.merlin_hibernate.entities.ModelEnzymeId;
 import hibernate.merlin_hibernate.entities.ModelPathway;
-import hibernate.merlin_hibernate.entities.ModelPathwayHasEnzyme;
-import hibernate.merlin_hibernate.entities.ModelPathwayHasReaction;
 import hibernate.merlin_hibernate.entities.ModelReaction;
-import hibernate.merlin_hibernate.entities.ModelReactionHasEnzyme;
-import hibernate.merlin_hibernate.dao.Interface.IModelEnzymeDAO;
 
 
 public class ModelEnzymeDAOImpl extends GenericDaoImpl<ModelEnzyme> implements IModelEnzymeDAO {
@@ -90,26 +85,26 @@ public class ModelEnzymeDAOImpl extends GenericDaoImpl<ModelEnzyme> implements I
 		Root<ModelReaction> table = c.from(ModelReaction.class); 
 	    c.select(table); 
 		
-		DetachedCriteria reactionsWithEnzyme = DetachedCriteria.forClass(ModelReactionHasEnzyme.class)
-				.setProjection(Property.forName("model_reaction_has_enzyme.reactionIdreaction"))
-			   // .add(Property.forName("model_reaction_has_enzyme.reactionIdreaction").eqProperty("model_reaction.idreaction"))
-			    .add(Property.forName("model_reaction_has_enzyme.enzymeEcnumber").eq(ecNumber))
-			    .add(Property.forName("model_reaction_has_enzyme.enzymeProteinIdprotein").eq(proteinId));
-		
-		DetachedCriteria pathwaysWithEnzyme = DetachedCriteria.forClass(ModelPathwayHasEnzyme.class)
-				.setProjection(Property.forName("model_reaction_has_enzyme.pathwayIdpathway"))
-			   // .add(Property.forName("model_pathway_has_enzyme.enzymeProteinIdprotein").eqProperty("model_reaction_has_enzyme.enzymeProteinIdprotein") )
-			    .add(Property.forName("model_pathway_has_enzyme.enzymeEcnumber").eq(ecNumber))
-				.add(Property.forName("model_pathway_has_enzyme.enzymeProteinIdprotein").eq(proteinId));
-		
-		DetachedCriteria pathwayInEnzymeAndReaction = DetachedCriteria.forClass(ModelPathwayHasReaction.class)
-				.setProjection(Property.forName("model_pathway_has_reaction.reactionIdreaction"))
-			    .add(Property.forName("model_pathway_has_reaction.pathwayIdpathway").in(pathwaysWithEnzyme) )
-			    .add(Property.forName("model_pathway_has_reaction.reactionIdreaction").in(reactionsWithEnzyme));
+//		DetachedCriteria reactionsWithEnzyme = DetachedCriteria.forClass(ModelReactionHasEnzyme.class)
+//				.setProjection(Property.forName("model_reaction_has_enzyme.reactionIdreaction"))
+//			   // .add(Property.forName("model_reaction_has_enzyme.reactionIdreaction").eqProperty("model_reaction.idreaction"))
+//			    .add(Property.forName("model_reaction_has_enzyme.enzymeEcnumber").eq(ecNumber))
+//			    .add(Property.forName("model_reaction_has_enzyme.enzymeProteinIdprotein").eq(proteinId));
+//		
+//		DetachedCriteria pathwaysWithEnzyme = DetachedCriteria.forClass(ModelPathwayHasEnzyme.class)
+//				.setProjection(Property.forName("model_reaction_has_enzyme.pathwayIdpathway"))
+//			   // .add(Property.forName("model_pathway_has_enzyme.enzymeProteinIdprotein").eqProperty("model_reaction_has_enzyme.enzymeProteinIdprotein") )
+//			    .add(Property.forName("model_pathway_has_enzyme.enzymeEcnumber").eq(ecNumber))
+//				.add(Property.forName("model_pathway_has_enzyme.enzymeProteinIdprotein").eq(proteinId));
+//		
+//		DetachedCriteria pathwayInEnzymeAndReaction = DetachedCriteria.forClass(ModelPathwayHasReaction.class)
+//				.setProjection(Property.forName("model_pathway_has_reaction.reactionIdreaction"))
+//			    .add(Property.forName("model_pathway_has_reaction.pathwayIdpathway").in(pathwaysWithEnzyme) )
+//			    .add(Property.forName("model_pathway_has_reaction.reactionIdreaction").in(reactionsWithEnzyme));
 		
 		List<Predicate> filters = new ArrayList<Predicate>();
 		Path<Object> reactionId = table.get("idreaction");
-		filters.add(reactionId.in(pathwayInEnzymeAndReaction));
+//		filters.add(reactionId.in(pathwayInEnzymeAndReaction));
 		
 		filters.add(cb.equal(table.get("originalReaction"), isInCompartment));
 		Predicate p = cb.and(filters.toArray(new Predicate[] {}));  // junta todos os predicados com and

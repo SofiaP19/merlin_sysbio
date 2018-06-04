@@ -55,7 +55,7 @@ public class AppTest
     	catch (Exception e) {
     		// The registry would be destroyed by the SessionFactory, but we had trouble building the SessionFactory
     		// so destroy it manually.
-    		System.out.println(e);
+    		e.printStackTrace();
     		StandardServiceRegistryBuilder.destroy( registry );
     	}
     }

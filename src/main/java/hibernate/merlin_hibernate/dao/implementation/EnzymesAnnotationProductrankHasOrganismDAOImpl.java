@@ -31,9 +31,9 @@ public class EnzymesAnnotationProductrankHasOrganismDAOImpl extends GenericDaoIm
 		return super.findAll();
 	}
 
-	public EnzymesAnnotationProductrankHasOrganism getEnzymesAnnotationProductrankHasOrganism(Integer id) {
-		return super.findById(id);
-	}
+//	public EnzymesAnnotationProductrankHasOrganism getEnzymesAnnotationProductrankHasOrganism(Integer id) {
+//		return super.findById(id);
+//	}
 
 	public void removeEnzymesAnnotationProductrankHasOrganism(EnzymesAnnotationProductrankHasOrganism enzymesAnnotationProductrankHasOrganism) {
 		super.delete(enzymesAnnotationProductrankHasOrganism);

@@ -1,4 +1,4 @@
-package hibernate.merlin_hibernate.Entities;
+package hibernate.merlin_hibernate.entities;
 // Generated 21/mar/2018 18:06:35 by Hibernate Tools 5.2.8.Final
 
 import javax.persistence.Column;

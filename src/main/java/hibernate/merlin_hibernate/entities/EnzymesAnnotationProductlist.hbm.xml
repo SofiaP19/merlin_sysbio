@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
-    <class catalog="sysbio_model" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.EnzymesAnnotationProductlist" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="enzymes_annotation_productlist">
+    <class catalog="test_hibernate" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.EnzymesAnnotationProductlist" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="enzymes_annotation_productlist">
         <id name="SKey" type="java.lang.Integer">
             <column name="s_key"/>
             <generator class="identity"/>

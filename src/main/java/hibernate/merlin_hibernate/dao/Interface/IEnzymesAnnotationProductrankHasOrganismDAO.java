@@ -15,7 +15,7 @@ public interface IEnzymesAnnotationProductrankHasOrganismDAO {
 	
 	public List<EnzymesAnnotationProductrankHasOrganism> getAllEnzymesAnnotationProductrankHasOrganism(); 
 	
-	public EnzymesAnnotationProductrankHasOrganism getEnzymesAnnotationProductrankHasOrganism(Integer id); 
+	//public EnzymesAnnotationProductrankHasOrganism getEnzymesAnnotationProductrankHasOrganism(Integer id); 
 	
 	public void removeEnzymesAnnotationProductrankHasOrganism(EnzymesAnnotationProductrankHasOrganism enzymesAnnotationProductrankHasOrganism); 
 	

@@ -3,8 +3,9 @@ package hibernate.merlin_hibernate.dao.implementation;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
-import hibernate.merlin_hibernate.entities.EnzymesAnnotationHomologuesHasEcnumber;
+
 import hibernate.merlin_hibernate.dao.Interface.IEnzymesAnnotationHomologuesHasEcnumberDAO;
+import hibernate.merlin_hibernate.entities.EnzymesAnnotationHomologuesHasEcnumber;
 
 
 public class EnzymesAnnotationHomologuesHasEcnumberDAOImpl extends GenericDaoImpl<EnzymesAnnotationHomologuesHasEcnumber> implements IEnzymesAnnotationHomologuesHasEcnumberDAO {
