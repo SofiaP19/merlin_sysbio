@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4/jun/2018 16:57:34 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="test_hibernate" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.ModelPromoter" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="model_promoter">
         <id name="idpromoter" type="java.lang.Integer">
@@ -12,27 +12,5 @@
         <property generated="never" lazy="false" name="absolutePosition" optimistic-lock="true" type="java.lang.Double" unique="false">
             <column name="absolute_position" precision="22" scale="0"/>
         </property>
-        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelTranscriptionUnits" optimistic-lock="true" sort="unsorted" table="model_transcription_unit_promoter">
-            <key on-delete="noaction">
-                <column name="promoter_idpromoter" not-null="true"/>
-            </key>
-            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelTranscriptionUnit" not-found="exception" unique="false">
-                <column name="transcription_unit_idtranscription_unit" not-null="true"/>
-            </many-to-many>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelProteins" optimistic-lock="true" sort="unsorted" table="model_sigma_promoter">
-            <key on-delete="noaction">
-                <column name="promoter_idpromoter" not-null="true"/>
-            </key>
-            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelProtein" not-found="exception" unique="false">
-                <column name="protein_idprotein" not-null="true"/>
-            </many-to-many>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelRegulatoryEvents" optimistic-lock="true" sort="unsorted" table="model_regulatory_event">
-            <key on-delete="noaction">
-                <column name="promoter_idpromoter" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelRegulatoryEvent" embed-xml="true" not-found="exception"/>
-        </set>
     </class>
 </hibernate-mapping>

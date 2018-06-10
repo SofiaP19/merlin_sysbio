@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4/jun/2018 16:57:34 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="test_hibernate" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.TransportersAnnotationGenesHasMetabolites" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="transporters_annotation_genes_has_metabolites">
         <composite-id class="hibernate.merlin_hibernate.entities.TransportersAnnotationGenesHasMetabolitesId" mapped="false" name="id" unsaved-value="undefined">
@@ -10,12 +10,6 @@
                 <column name="metabolite_id"/>
             </key-property>
         </composite-id>
-        <many-to-one class="hibernate.merlin_hibernate.entities.TransportersAnnotationGenes" embed-xml="true" fetch="select" insert="false" name="transportersAnnotationGenes" not-found="exception" optimistic-lock="true" unique="false" update="false">
-            <column name="gene_id" not-null="true"/>
-        </many-to-one>
-        <many-to-one class="hibernate.merlin_hibernate.entities.TransportersAnnotationMetabolites" embed-xml="true" fetch="select" insert="false" name="transportersAnnotationMetabolites" not-found="exception" optimistic-lock="true" unique="false" update="false">
-            <column name="metabolite_id" not-null="true"/>
-        </many-to-one>
         <property generated="never" lazy="false" name="similarityScoreSum" optimistic-lock="true" type="float" unique="false">
             <column name="similarity_score_sum" not-null="true" precision="12" scale="0"/>
         </property>
@@ -25,12 +19,5 @@
         <property generated="never" lazy="false" name="frequency" optimistic-lock="true" type="int" unique="false">
             <column name="frequency" not-null="true"/>
         </property>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="transportersAnnotationGenesHasMetabolitesHasTypes" optimistic-lock="true" sort="unsorted" table="transporters_annotation_genes_has_metabolites_has_type">
-            <key on-delete="noaction">
-                <column name="gene_id" not-null="true"/>
-                <column name="metabolite_id" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.TransportersAnnotationGenesHasMetabolitesHasType" embed-xml="true" not-found="exception"/>
-        </set>
     </class>
 </hibernate-mapping>

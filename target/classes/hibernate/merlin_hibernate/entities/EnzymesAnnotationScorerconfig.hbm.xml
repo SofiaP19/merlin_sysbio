@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4/jun/2018 16:57:34 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="test_hibernate" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.EnzymesAnnotationScorerconfig" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="enzymes_annotation_scorerconfig">
         <composite-id class="hibernate.merlin_hibernate.entities.EnzymesAnnotationScorerconfigId" mapped="false" name="id" unsaved-value="undefined">
             <key-property name="threshold" type="float">
                 <column name="threshold" precision="12" scale="0"/>
+            </key-property>
+            <key-property name="upperThreshold" type="float">
+                <column name="upperThreshold" precision="12" scale="0"/>
             </key-property>
             <key-property name="balanceBh" type="float">
                 <column name="balanceBH" precision="12" scale="0"/>
@@ -18,14 +21,14 @@
             <key-property name="minHomologies" type="int">
                 <column name="minHomologies"/>
             </key-property>
-            <key-property name="database" type="string">
-                <column length="45" name="database"/>
-            </key-property>
-            <key-property name="latest" type="boolean">
-                <column name="latest"/>
+            <key-property name="blastDb" type="string">
+                <column length="45" name="blastDB"/>
             </key-property>
             <key-property name="bestAlpha" type="boolean">
                 <column name="bestAlpha"/>
+            </key-property>
+            <key-property name="latest" type="boolean">
+                <column name="latest"/>
             </key-property>
         </composite-id>
     </class>

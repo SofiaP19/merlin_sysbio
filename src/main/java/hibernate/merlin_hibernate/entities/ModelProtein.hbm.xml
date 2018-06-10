@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4/jun/2018 16:57:34 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="test_hibernate" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.ModelProtein" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="model_protein">
         <id name="idprotein" type="java.lang.Integer">
@@ -30,87 +30,5 @@
         <property generated="never" lazy="false" name="pi" optimistic-lock="true" type="java.lang.Float" unique="false">
             <column name="pi" precision="12" scale="0"/>
         </property>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelMetabolicRegulations" optimistic-lock="true" sort="unsorted" table="model_metabolic_regulation">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelMetabolicRegulation" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelEnzymaticCofactors" optimistic-lock="true" sort="unsorted" table="model_enzymatic_cofactor">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelEnzymaticCofactor" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelEnzymaticAlternativeCofactors" optimistic-lock="true" sort="unsorted" table="model_enzymatic_alternative_cofactor">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelEnzymaticAlternativeCofactor" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelFunctionalParameters" optimistic-lock="true" sort="unsorted" table="model_functional_parameter">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelFunctionalParameter" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelCompounds" optimistic-lock="true" sort="unsorted" table="model_effector">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelCompound" not-found="exception" unique="false">
-                <column name="compound_idcompound" not-null="true"/>
-            </many-to-many>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="modelPromoters" optimistic-lock="true" sort="unsorted" table="model_sigma_promoter">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <many-to-many embed-xml="true" entity-name="hibernate.merlin_hibernate.entities.ModelPromoter" not-found="exception" unique="false">
-                <column name="promoter_idpromoter" not-null="true"/>
-            </many-to-many>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelProteinCompositions" optimistic-lock="true" sort="unsorted" table="model_protein_composition">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelProteinComposition" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelExperimentTurnoverNumbers" optimistic-lock="true" sort="unsorted" table="model_experiment_turnover_number">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelExperimentTurnoverNumber" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelExperimentSubstrateAffinities" optimistic-lock="true" sort="unsorted" table="model_experiment_substrate_affinity">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelExperimentSubstrateAffinity" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelSubstrateAffinities" optimistic-lock="true" sort="unsorted" table="model_substrate_affinity">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelSubstrateAffinity" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelRegulatoryEvents" optimistic-lock="true" sort="unsorted" table="model_regulatory_event">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelRegulatoryEvent" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelExperimentInhibitors" optimistic-lock="true" sort="unsorted" table="model_experiment_inhibitor">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelExperimentInhibitor" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="modelEnzymes" optimistic-lock="true" sort="unsorted" table="model_enzyme">
-            <key on-delete="noaction">
-                <column name="protein_idprotein" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.ModelEnzyme" embed-xml="true" not-found="exception"/>
-        </set>
     </class>
 </hibernate-mapping>

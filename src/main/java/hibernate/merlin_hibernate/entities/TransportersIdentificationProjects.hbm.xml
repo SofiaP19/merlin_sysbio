@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated 18/mai/2018 12:30:26 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4/jun/2018 16:57:34 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="test_hibernate" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.TransportersIdentificationProjects" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="transporters_identification_projects">
         <id name="id" type="java.lang.Integer">
@@ -18,17 +18,14 @@
         <property generated="never" lazy="false" name="date" optimistic-lock="true" type="timestamp" unique="false">
             <column length="19" name="date" not-null="true"/>
         </property>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="transportersIdentificationSwReportses" optimistic-lock="true" sort="unsorted" table="transporters_identification_sw_reports">
-            <key on-delete="noaction">
-                <column name="project_id" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.TransportersIdentificationSwReports" embed-xml="true" not-found="exception"/>
-        </set>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="compartmentsAnnotationPsortReportses" optimistic-lock="true" sort="unsorted" table="compartments_annotation_psort_reports">
-            <key on-delete="noaction">
-                <column name="project_id" not-null="true"/>
-            </key>
-            <one-to-many class="hibernate.merlin_hibernate.entities.CompartmentsAnnotationPsortReports" embed-xml="true" not-found="exception"/>
-        </set>
+        <property generated="never" lazy="false" name="organismName" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="organism_name"/>
+        </property>
+        <property generated="never" lazy="false" name="organismLineage" optimistic-lock="true" type="string" unique="false">
+            <column length="1000" name="organism_lineage"/>
+        </property>
+        <property generated="never" lazy="false" name="compartmentsTool" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="compartments_tool"/>
+        </property>
     </class>
 </hibernate-mapping>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4/jun/2018 16:57:34 by Hibernate Tools 5.2.8.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="test_hibernate" dynamic-insert="false" dynamic-update="false" mutable="true" name="hibernate.merlin_hibernate.entities.ModelTranscriptionUnitPromoter" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="model_transcription_unit_promoter">
+        <composite-id class="hibernate.merlin_hibernate.entities.ModelTranscriptionUnitPromoterId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="promoterIdpromoter" type="int">
+                <column name="promoter_idpromoter"/>
+            </key-property>
+            <key-property name="transcriptionUnitIdtranscriptionUnit" type="int">
+                <column name="transcription_unit_idtranscription_unit"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
